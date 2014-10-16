@@ -1,0 +1,58 @@
+* {
+    border: 1px solid LightGray;
+    color: #333;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+/* HEADER */
+
+h1 {
+    display: inline;
+    text-align: left;
+}
+
+#adsHeader {
+    width: auto;
+    float: right;
+}
+
+/* NAV BAR */
+nav {
+    clear: both;
+    text-align: center;
+}
+
+/* SIDEBAR */
+
+aside {
+    float: left;
+}
+
+/* MAIN */
+
+main {
+    float: left;
+}
+
+/* FOOTER */
+
+ul li {
+    border-right: 1px solid #333;
+    padding: 0 0.5em;
+}
+
+ul li:last-child {
+    border: 0;
+}
+
+li {
+    display: inline;
+}
+
+footer {
+    text-align: center;
+}
