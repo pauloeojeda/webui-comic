@@ -5,9 +5,10 @@ app.singleComic = Backbone.Model.extend({
     defaults: {
     	idComic: 0,
     	idGenre: 0,
-    	name: "comic0",
+    	name: "",
     	number: 0,
-    	cover: "images/placeholder.jpg"
+    	cover: "",
+        link: ""
     },
 
     initialize: function() {

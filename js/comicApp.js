@@ -1,31 +1,68 @@
-var comic1 = new app.singleComic({
+var marvel1 = new app.singleComic({
     idComic: 1,
     idGenre: 1,
-    name: "name1",
+    name: "marvel1",
     number: 1,
-    cover: "images/marvel1.jpg"
+    cover: "images/marvel1.jpg",
+    link: "marvel1"
 });
 
-var comic2 = new app.singleComic({
+var marvel2 = new app.singleComic({
     idComic: 2,
     idGenre: 2,
-    name: "name2",
+    name: "marvel2",
     number: 2,
-    cover: "images/marvel2.jpg"
+    cover: "images/marvel2.jpg",
+    link: "marvel2"
 });
 
-var comic3 = new app.singleComic({
+var marvel3 = new app.singleComic({
     idComic: 3,
     idGenre: 3,
-    name: "name3",
+    name: "marvel3",
     number: 3,
-    cover: "images/marvel3.jpg"
+    cover: "images/marvel3.jpg",
+    link: "marvel3"
+});
+
+var admin = new app.singleUserType({
+    idUserType: 1,
+    name: "admin",
+    description: "include BanHammer.*"
+});
+
+var user =  new app.singleUserType({
+    idUserType: 2,
+    name: "user",
+    description: "// include BanHammer.*"
+});
+
+var sheldon = new app.singleUser({
+    idUser: 1,
+    idUserType: admin.get("idUserType"),
+    username: "sheldon",
+    password: "bazinga",
+    fullname: "Sheldon L Cooper"
+});
+
+var paulo = new app.singleUser({
+    idUser: 2,
+    idUserType: user.get("idUserType"),
+    username: "paulo",
+    password: "123456",
+    fullname: "Paulo E Ojeda"
 });
 
 var comicGroup = new app.ComicsCollection([
-    comic1, comic2, comic3
+    marvel1, marvel2, marvel3
 ]);
 
-var comicGroupView = new app.allComicsView({ collection: comicGroup});
+/*var loginForm = new app.loginFormView();
+$("#loginForm").html(loginForm.render());*/
 
+/*
+
+Used to render the whole gallery
+var comicGroupView = new app.allComicsView({ collection: comicGroup});
 $("#allComics").html(comicGroupView.render().el);
+*/

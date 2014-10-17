@@ -2,7 +2,7 @@
 var app = app || {}
 
 // The view for a single model view, which is one comic
-app.singleComicView = Bacbone.View.extend({
+app.singleComicView = Backbone.View.extend({
     tagName: "article",
     className: "comicListItem",
 
