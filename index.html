@@ -3,6 +3,8 @@
   <head>
     <meta charset="utf-8">
     <title>Comics Loan</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/ico">
+    <link rel="icon" href="favicon.ico" type="image/ico">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- Bootstrap -->
@@ -42,7 +44,7 @@
         </label>
         <div class="btn-group btn-group-justified">
           <div class="btn-group">
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+            <button id="btn_generic_login" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
           </div>
           <div class="btn-group">
             <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
@@ -502,12 +504,14 @@
     <script src="js/libs/bootstrap.min.js"></script>
     <script src="js/libs/underscore.js"></script>
     <script src="js/libs/backbone.js"></script>
+    <script src="js/libs/backbone.localStorage.js"></script>
     <script src="js/libs/docs.min.js"></script>
     <!-- models -->
     <script src="js/models/singleBorrowerModel.js"></script>
     <script src="js/models/singleComicModel.js"></script>
     <script src="js/models/singleGenreModel.js"></script>
     <script src="js/models/singleLoanModel.js"></script>
+    <script src="js/models/singleSessionModel.js"></script>
     <script src="js/models/singleSpecimenModel.js"></script>
     <script src="js/models/singleUserModel.js"></script>
     <script src="js/models/singleUserTypeModel.js"></script>
@@ -518,7 +522,10 @@
     <script src="js/views/allComicsView.js"></script>
     <!-- collections -->
     <script src="js/collections/allComics.js"></script>
+    <script src="js/collections/allUsers.js"></script>
+    <script src="js/collections/allSessions.js"></script>
     <!-- routes -->
+    <script src="js/routes/routers.js"></script>
     <!-- app -->
     <script src="js/comicApp.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->

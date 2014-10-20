@@ -37,6 +37,7 @@ var user =  new app.singleUserType({
     description: "// include BanHammer.*"
 });
 
+/*
 var sheldon = new app.singleUser({
     idUser: 1,
     idUserType: admin.get("idUserType"),
@@ -44,6 +45,7 @@ var sheldon = new app.singleUser({
     password: "bazinga",
     fullname: "Sheldon L Cooper"
 });
+*/
 
 var paulo = new app.singleUser({
     idUser: 2,
