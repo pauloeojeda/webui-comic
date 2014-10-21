@@ -47,6 +47,7 @@ var sheldon = new app.singleUser({
 });
 */
 
+/*
 var paulo = new app.singleUser({
     idUser: 2,
     idUserType: user.get("idUserType"),
@@ -54,6 +55,7 @@ var paulo = new app.singleUser({
     password: "123456",
     fullname: "Paulo E Ojeda"
 });
+*/
 
 var comicGroup = new app.ComicsCollection([
     marvel1, marvel2, marvel3

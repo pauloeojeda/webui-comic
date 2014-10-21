@@ -4,7 +4,7 @@ var app = app || {}
 // The view for the login form
 app.loginFormView = Backbone.View.extend({
 
-    el: '#loginForm',
+    el: '#content',
 
     template: $('#loginFormTemplate').html(),
 

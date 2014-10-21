@@ -12,7 +12,7 @@ app.singleUser = Backbone.Model.extend({
 
     initialize: function() {
         console.log("A user named " + this.get("fullname") + " has been created");
-    }
+    },
 
     validate: function(attrs) {
         if(! /^([a-zA-Z0-9]{1,})$/.test(attrs.username)){

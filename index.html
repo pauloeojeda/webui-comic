@@ -24,9 +24,9 @@
   <body>
     <div class="site">
 
-      <div id="loginForm"></div>
-
-      <div id="allComics"></div>
+      <!--<div id="loginForm"></div>
+      <div id="allComics"></div>-->
+      <div id="content"></div>
 
       <div id="copy"></div>
       
@@ -35,7 +35,7 @@
     <!-- Login -->
 
     <script id="loginFormTemplate" type="text/template">
-      <form class="form-signin" role="form">
+      <div class="form-signin" role="form">
         <!--<h2 class="form-signin-heading">Please sign in</h2>-->
         <input id="user_name" type="text" class="form-control" placeholder="Username" required autofocus>
         <input id="user_pass" type="password" class="form-control" placeholder="Password" required>
@@ -50,7 +50,7 @@
             <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
           </div>
         </div>
-      </form>
+      </div>
     </script>
 
     <!-- Normal User Layout -->
@@ -521,6 +521,7 @@
     <!-- views (all) -->
     <script src="js/views/allComicsView.js"></script>
     <!-- collections -->
+    <script src="js/collections/allCollections.js"></script>
     <script src="js/collections/allComics.js"></script>
     <script src="js/collections/allUsers.js"></script>
     <script src="js/collections/allSessions.js"></script>

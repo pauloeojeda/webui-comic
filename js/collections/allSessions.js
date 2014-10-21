@@ -9,8 +9,10 @@ app.allSessions = Backbone.Collection.extend({
         app.users_collection.fetch();
         var users = app.users_collection.toJSON();
 
-        if (app.users_collection.isEmpty(users)) {
-            var user = new app.singleUser({
+        if (app.generic_collection.isEmpty(users)) {
+
+            // add sheldon
+            var admin = new app.singleUser({
                 idUser: 1,
                 //idUserType: admin.get("idUserType"),
                 idUserType: 1,
@@ -19,25 +21,40 @@ app.allSessions = Backbone.Collection.extend({
                 fullname: "Sheldon L Cooper"
             });
 
+            app.users_collection.add(admin);
+            admin.save();
+            app.users_collection.fetch();
+
+            /*// add me
+            var user = new app.singleUser({
+                idUser: 2,
+                // idUserType: user.get("idUserType"),
+                idUserType: 2,
+                username: "paulo",
+                password: "123456",
+                fullname: "Paulo E Ojeda"
+            });
+
             app.users_collection.add(user);
             user.save();
-            app.users_collection.fetch();
+            app.users_collection.fetch();*/
         }
     },
 
     login: function ( data ) {
         // get the user's data
-        var user = app.users_collection.where({ user: data.user, pass: data.pass });
+        var user = app.users_collection.where({ username: data.username, password: data.password });
 
         // check if the user exists
-        if (!app.users_collection.isEmpty(user[0])) {
+        if (!app.generic_collection.isEmpty(user[0])) {
             user = user[0];
 
             app.sessions_collection.fetch();
 
-            var session = app.sessions_collection.get(0);
+            // originally get(0)
+            var session = app.sessions_collection.at(0);
 
-            if (app.users_collection.isEmpty(session)) {
+            if (app.generic_collection.isEmpty(session)) {
                 session = new app.singleSession({ session: true });
 
                 app.sessions_collection.add(session);
@@ -60,7 +77,8 @@ app.allSessions = Backbone.Collection.extend({
     check_login: function () {
         // get the user's data
         app.sessions_collection.fetch();
-        var session = app.sessions_collection.get(0);
+        // originally get(0)
+        var session = app.sessions_collection.at(0);
 
         // check if it exists
         if (session.toJSON().session == true) {
@@ -77,7 +95,7 @@ app.allSessions = Backbone.Collection.extend({
         app.sessions_collection.fetch();
         var session = app.sessions_collection.get(0);
 
-        if(!app.users_collection.isEmpty(session)){
+        if(!app.generic_collection.isEmpty(session)){
             // change the status to false
             session.set({
                 session: false

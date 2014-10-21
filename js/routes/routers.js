@@ -6,7 +6,7 @@ app.Router = Backbone.Router.extend({
     },
 
     login : function () {
-        app.loginFormView().render();
+        app.loginform.render();
     },
 
     logout: function () {
@@ -15,8 +15,9 @@ app.Router = Backbone.Router.extend({
 
     home : function () {
         var login = app.sessions_collection.check_login();
-        if (!app.users_collection.isEmpty(login)) {
-            app.allComicsView.render();
+        if (!app.generic_collection.isEmpty(login)) {
+            /* app.allcomics.render();*/
+            $("#content").html(new app.allComicsView({ collection: comicGroup}).render().el);
         }
     }
     
