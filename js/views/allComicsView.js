@@ -1,10 +1,12 @@
 // Namespace our app
-var app = app || {}
+var app = app || {};
+
 // The view for all the comics
 app.allComicsView = Backbone.View.extend({
 
-    // el: '#content',
+    //el: '#contentArea',
     tagName: "section",
+    class: "comicGallery",
 
     initialize: function () {
         this.render();
@@ -21,4 +23,4 @@ app.allComicsView = Backbone.View.extend({
     }
 });
 
-app.allcomics = new app.allComicsView();
+// app.allcomics = new app.allComicsView();

@@ -93,7 +93,9 @@ app.allSessions = Backbone.Collection.extend({
     logout: function () {
         // get the user's data
         app.sessions_collection.fetch();
-        var session = app.sessions_collection.get(0);
+
+        //originally get(0)
+        var session = app.sessions_collection.at(0);
 
         if(!app.generic_collection.isEmpty(session)){
             // change the status to false

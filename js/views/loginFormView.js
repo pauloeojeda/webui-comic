@@ -9,7 +9,8 @@ app.loginFormView = Backbone.View.extend({
     template: $('#loginFormTemplate').html(),
 
     events: {
-        'click #btn_generic_login'      : 'login'
+        'click #btn_generic_login'      : 'login',
+        'click #btn_generic_register'   : 'register'
     },
 
     initialize: function () {
@@ -31,7 +32,7 @@ app.loginFormView = Backbone.View.extend({
         if(login)
         {
             // DO LOGIN
-            $('#login_error').html();
+            //$('#login_error').html();
             window.location.replace('#home');
         }
         else
@@ -51,7 +52,10 @@ app.loginFormView = Backbone.View.extend({
         app.sessions_collection.logout();
     },
 
+    register: function () {
+        window.location.replace('#register');
+    }
+
 });
 
-// Used to render the login form at the beginning of website loading
 app.loginform = new app.loginFormView();

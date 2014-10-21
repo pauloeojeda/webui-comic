@@ -36,7 +36,7 @@
 
     <script id="loginFormTemplate" type="text/template">
       <div class="form-signin" role="form">
-        <!--<h2 class="form-signin-heading">Please sign in</h2>-->
+        <h2 class="form-signin-heading">Please sign in</h2>
         <input id="user_name" type="text" class="form-control" placeholder="Username" required autofocus>
         <input id="user_pass" type="password" class="form-control" placeholder="Password" required>
         <label class="checkbox">
@@ -47,7 +47,25 @@
             <button id="btn_generic_login" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
           </div>
           <div class="btn-group">
-            <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+            <button id="btn_generic_register" class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
+          </div>
+        </div>
+      </div>
+    </script>
+
+    <!-- Register -->
+    <script id="registerFormTemplate" type="text/template">
+      <div class="form-signin" role="form">
+        <h2 class="form-signin-heading">Please register below</h2>
+        <input id="user_name_r" type="text" class="form-control" placeholder="Username" required autofocus>
+        <input id="user_pass_r" type="password" class="form-control" placeholder="Password" required>
+        <input id="user_pass_r2" type="password" class="form-control" placeholder="Repeat Password" required>
+        <div class="btn-group btn-group-justified">
+          <div class="btn-group">
+            <button id="btn_generic_login_2" class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+          </div>
+          <div class="btn-group">
+            <button id="btn_generic_register_2" class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
           </div>
         </div>
       </div>
@@ -67,20 +85,37 @@
                           <span class="icon-bar"></span>
                           <span class="icon-bar"></span>
                       </button>
-                      <a class="navbar-brand" href="#">Start Bootstrap</a>
+                      <a class="navbar-brand" href="#home">Comics Loan</a>
                   </div>
                   <!-- Collect the nav links, forms, and other content for toggling -->
                   <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                       <ul class="nav navbar-nav">
                           <li>
-                              <a href="#">About</a>
+                              <a href="#genres">Genres</a>
                           </li>
                           <li>
-                              <a href="#">Services</a>
+                              <a href="#editions">Editions</a>
                           </li>
                           <li>
-                              <a href="#">Contact</a>
+                              <a href="#news">News</a>
                           </li>
+                          <li>
+                              <a href="#characters">Characters</a>
+                          </li>
+                      </ul>
+                      <ul class="nav navbar-nav navbar-right">
+                        <li>
+                            <a href="#user">Sheldon 
+                              <span class="glyphicon glyphicon-user"></span>
+                            </a>
+                        </li>
+                        <li>
+                          <form class="navbar-form navbar-left" role="search">
+                            <div class="form-group">
+                              <input type="text" class="form-control" placeholder="Search">
+                            </div>
+                          </form>
+                        </li>
                       </ul>
                   </div>
                   <!-- /.navbar-collapse -->
@@ -94,11 +129,20 @@
               <div class="row">
 
                   <div class="col-md-3">
-                      <p class="lead">Shop Name</p>
+                      <p class="lead">Categories</p>
                       <div class="list-group">
-                          <a href="#" class="list-group-item">Category 1</a>
-                          <a href="#" class="list-group-item">Category 2</a>
-                          <a href="#" class="list-group-item">Category 3</a>
+                          <a href="#popular" class="list-group-item">
+                            <span class="glyphicon glyphicon-fire"></span> Popular
+                          </a>
+                          <a href="#qualifications" class="list-group-item">
+                            <span class="glyphicon glyphicon-star"></span> Qualifications
+                          </a>
+                          <a href="#topSearches" class="list-group-item">
+                            <span class="glyphicon glyphicon-search"></span> Top Searches
+                          </a>
+                          <a href="#recommended" class="list-group-item">
+                            <span class="glyphicon glyphicon-share"></span> Recommended
+                          </a>
                       </div>
                   </div>
 
@@ -115,13 +159,13 @@
                                   </ol>
                                   <div class="carousel-inner">
                                       <div class="item active">
-                                          <img class="slide-image" src="http://placehold.it/800x300" alt="">
+                                          <img class="slide-image" src="images/marvel7.jpg" alt="">
                                       </div>
                                       <div class="item">
-                                          <img class="slide-image" src="http://placehold.it/800x300" alt="">
+                                          <img class="slide-image" src="images/marvel8.jpg" alt="">
                                       </div>
                                       <div class="item">
-                                          <img class="slide-image" src="http://placehold.it/800x300" alt="">
+                                          <img class="slide-image" src="images/marvel9.jpg" alt="">
                                       </div>
                                   </div>
                                   <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
@@ -135,370 +179,66 @@
 
                       </div>
 
-                      <div class="row">
-
-                          <div class="col-sm-4 col-lg-4 col-md-4">
-                              <div class="thumbnail">
-                                  <img src="http://placehold.it/320x150" alt="">
-                                  <div class="caption">
-                                      <h4 class="pull-right">$24.99</h4>
-                                      <h4><a href="#">First Product</a>
-                                      </h4>
-                                      <p>See more snippets like this online store item at <a target="_blank" href="http://www.bootsnipp.com">Bootsnipp - http://bootsnipp.com</a>.</p>
-                                  </div>
-                                  <div class="ratings">
-                                      <p class="pull-right">15 reviews</p>
-                                      <p>
-                                          <span class="glyphicon glyphicon-star"></span>
-                                          <span class="glyphicon glyphicon-star"></span>
-                                          <span class="glyphicon glyphicon-star"></span>
-                                          <span class="glyphicon glyphicon-star"></span>
-                                          <span class="glyphicon glyphicon-star"></span>
-                                      </p>
-                                  </div>
-                              </div>
-                          </div>
-
-                          <div class="col-sm-4 col-lg-4 col-md-4">
-                              <div class="thumbnail">
-                                  <img src="http://placehold.it/320x150" alt="">
-                                  <div class="caption">
-                                      <h4 class="pull-right">$64.99</h4>
-                                      <h4><a href="#">Second Product</a>
-                                      </h4>
-                                      <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                  </div>
-                                  <div class="ratings">
-                                      <p class="pull-right">12 reviews</p>
-                                      <p>
-                                          <span class="glyphicon glyphicon-star"></span>
-                                          <span class="glyphicon glyphicon-star"></span>
-                                          <span class="glyphicon glyphicon-star"></span>
-                                          <span class="glyphicon glyphicon-star"></span>
-                                          <span class="glyphicon glyphicon-star-empty"></span>
-                                      </p>
-                                  </div>
-                              </div>
-                          </div>
-
-                          <div class="col-sm-4 col-lg-4 col-md-4">
-                              <div class="thumbnail">
-                                  <img src="http://placehold.it/320x150" alt="">
-                                  <div class="caption">
-                                      <h4 class="pull-right">$74.99</h4>
-                                      <h4><a href="#">Third Product</a>
-                                      </h4>
-                                      <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                  </div>
-                                  <div class="ratings">
-                                      <p class="pull-right">31 reviews</p>
-                                      <p>
-                                          <span class="glyphicon glyphicon-star"></span>
-                                          <span class="glyphicon glyphicon-star"></span>
-                                          <span class="glyphicon glyphicon-star"></span>
-                                          <span class="glyphicon glyphicon-star"></span>
-                                          <span class="glyphicon glyphicon-star-empty"></span>
-                                      </p>
-                                  </div>
-                              </div>
-                          </div>
-
-                          <div class="col-sm-4 col-lg-4 col-md-4">
-                              <div class="thumbnail">
-                                  <img src="http://placehold.it/320x150" alt="">
-                                  <div class="caption">
-                                      <h4 class="pull-right">$84.99</h4>
-                                      <h4><a href="#">Fourth Product</a>
-                                      </h4>
-                                      <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                  </div>
-                                  <div class="ratings">
-                                      <p class="pull-right">6 reviews</p>
-                                      <p>
-                                          <span class="glyphicon glyphicon-star"></span>
-                                          <span class="glyphicon glyphicon-star"></span>
-                                          <span class="glyphicon glyphicon-star"></span>
-                                          <span class="glyphicon glyphicon-star-empty"></span>
-                                          <span class="glyphicon glyphicon-star-empty"></span>
-                                      </p>
-                                  </div>
-                              </div>
-                          </div>
-
-                          <div class="col-sm-4 col-lg-4 col-md-4">
-                              <div class="thumbnail">
-                                  <img src="http://placehold.it/320x150" alt="">
-                                  <div class="caption">
-                                      <h4 class="pull-right">$94.99</h4>
-                                      <h4><a href="#">Fifth Product</a>
-                                      </h4>
-                                      <p>This is a short description. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                                  </div>
-                                  <div class="ratings">
-                                      <p class="pull-right">18 reviews</p>
-                                      <p>
-                                          <span class="glyphicon glyphicon-star"></span>
-                                          <span class="glyphicon glyphicon-star"></span>
-                                          <span class="glyphicon glyphicon-star"></span>
-                                          <span class="glyphicon glyphicon-star"></span>
-                                          <span class="glyphicon glyphicon-star-empty"></span>
-                                      </p>
-                                  </div>
-                              </div>
-                          </div>
-
-                          <div class="col-sm-4 col-lg-4 col-md-4">
-                              <h4><a href="#">Like this template?</a>
-                              </h4>
-                              <p>If you like this template, then check out <a target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">this tutorial</a> on how to build a working review system for your online store!</p>
-                              <a class="btn btn-primary" target="_blank" href="http://maxoffsky.com/code-blog/laravel-shop-tutorial-1-building-a-review-system/">View Tutorial</a>
-                          </div>
-
+                      <div id="contentArea" class="row">
                       </div>
-
                   </div>
-
               </div>
-
+              <div id="push"></div>
           </div>
           <!-- /.container -->
 
           <div class="container">
 
               <hr>
-
               <!-- Footer -->
               <footer>
-                  <div class="row">
-                      <div class="col-lg-12">
-                          <p>Copyright &copy; Your Website 2014</p>
-                      </div>
-                  </div>
+                <div class="container">
+                  <p class="muted credit">Copyright &copy; Sheldon L Cooper 2014</p>
+                  <p class="muted credit"><a href="#sitemap">Sitemap</a> | <a href="#network">Network</a> | <a href="#disclaimer">Disclaimer</a> </p>
+                </div>
               </footer>
           </div>
     </script>
     <!-- Admin User Layout -->
 
     <!-- Comic Element -->
-
     <script id="comicElement" type="text/template">
-      <a href="#<%= link %>">
-          <img src="<%= cover %>" alt="<%= name %>" class="image"/>
-          <ul>
-              <li class="comicInfo"><strong>Id Comic:</strong> <%= idComic %></li>
-              <li class="comicInfo"><strong>Id Genre:</strong> <%= idGenre %></li>
-              <li class="comicInfo"><strong>Name:</strong> <%= name %></li>
-              <li class="comicInfo"><strong>Number:</strong> <%= number %></li>
-              <li class="comicInfo"><strong>Cover:</strong> <%= cover %></li>
-          </ul>
-      </a>
+      <div class="col-sm-4 col-lg-4 col-md-4">
+          <div class="thumbnail">
+              <img src="<%= cover %>" alt="">
+              <div class="caption">
+                  <h4 class="pull-right"><%= number %></h4>
+                  <h4><a href="#<%= link %>"><%= name %></a>
+                  </h4>
+                  <p><%= description %></p>
+              </div>
+              <div class="ratings">
+                  <p class="pull-right">15 reviews</p>
+                  <p>
+                      <span class="glyphicon glyphicon-star"></span>
+                      <span class="glyphicon glyphicon-star"></span>
+                      <span class="glyphicon glyphicon-star"></span>
+                      <span class="glyphicon glyphicon-star"></span>
+                      <span class="glyphicon glyphicon-star-empty"></span>
+                  </p>
+              </div>
+          </div>
+      </div>
     </script>
-    
-    <!--
-    <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#">Comics Loans</a>
-        </div>
-        <div class="navbar-collapse collapse">
-          <form class="navbar-form navbar-right">
-            <input type="text" class="form-control" placeholder="Search...">
-          </form>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Genres</a></li>
-            <li><a href="#">Editions</a></li>
-            <li><a href="#">News</a></li>
-            <li><a href="#">Characters</a></li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <!--<script id="comicElement" type="text/template">
+      <a href="#<%= name %>">
+        <img src="<%= cover %>" alt="<%= name %>" class="image"/>
+      </a>
+      <ul>
+          <li class="comicInfo"><strong>Id Comic:</strong> <%= idComic %></li>
+          <li class="comicInfo"><strong>Id Genre:</strong> <%= idGenre %></li>
+          <li class="comicInfo"><strong>Name:</strong> <%= name %></li>
+          <li class="comicInfo"><strong>Number:</strong> <%= number %></li>
+          <li class="comicInfo"><strong>Cover:</strong> <%= cover %></li>
+      </ul>
+      
+    </script>-->
 
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-sm-3 col-md-2 sidebar">
-          <ul class="nav nav-sidebar">
-            <li class="active"><a href="#">Most Popular Comics</a></li>
-            <li><a href="#">Qualification</a></li>
-            <li><a href="#">Top Searches</a></li>
-            <li><a href="#">Recommendations</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li><a href="">Nav item</a></li>
-            <li><a href="">Nav item again</a></li>
-            <li><a href="">One more nav</a></li>
-            <li><a href="">Another nav item</a></li>
-            <li><a href="">More navigation</a></li>
-          </ul>
-          <ul class="nav nav-sidebar">
-            <li><a href="">Nav item again</a></li>
-            <li><a href="">One more nav</a></li>
-            <li><a href="">Another nav item</a></li>
-          </ul>
-        </div>
-        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
-          <h1 class="page-header">Dashboard</h1>
-
-          <div class="row placeholders">
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="holder.js/200x200/auto/sky" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-            <div class="col-xs-6 col-sm-3 placeholder">
-              <img data-src="holder.js/200x200/auto/vine" class="img-responsive" alt="Generic placeholder thumbnail">
-              <h4>Label</h4>
-              <span class="text-muted">Something else</span>
-            </div>
-          </div>
-
-          <h2 class="sub-header">Section title</h2>
-          <div class="table-responsive">
-            <table class="table table-striped">
-              <thead>
-                <tr>
-                  <th>#</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                  <th>Header</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>1,001</td>
-                  <td>Lorem</td>
-                  <td>ipsum</td>
-                  <td>dolor</td>
-                  <td>sit</td>
-                </tr>
-                <tr>
-                  <td>1,002</td>
-                  <td>amet</td>
-                  <td>consectetur</td>
-                  <td>adipiscing</td>
-                  <td>elit</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>Integer</td>
-                  <td>nec</td>
-                  <td>odio</td>
-                  <td>Praesent</td>
-                </tr>
-                <tr>
-                  <td>1,003</td>
-                  <td>libero</td>
-                  <td>Sed</td>
-                  <td>cursus</td>
-                  <td>ante</td>
-                </tr>
-                <tr>
-                  <td>1,004</td>
-                  <td>dapibus</td>
-                  <td>diam</td>
-                  <td>Sed</td>
-                  <td>nisi</td>
-                </tr>
-                <tr>
-                  <td>1,005</td>
-                  <td>Nulla</td>
-                  <td>quis</td>
-                  <td>sem</td>
-                  <td>at</td>
-                </tr>
-                <tr>
-                  <td>1,006</td>
-                  <td>nibh</td>
-                  <td>elementum</td>
-                  <td>imperdiet</td>
-                  <td>Duis</td>
-                </tr>
-                <tr>
-                  <td>1,007</td>
-                  <td>sagittis</td>
-                  <td>ipsum</td>
-                  <td>Praesent</td>
-                  <td>mauris</td>
-                </tr>
-                <tr>
-                  <td>1,008</td>
-                  <td>Fusce</td>
-                  <td>nec</td>
-                  <td>tellus</td>
-                  <td>sed</td>
-                </tr>
-                <tr>
-                  <td>1,009</td>
-                  <td>augue</td>
-                  <td>semper</td>
-                  <td>porta</td>
-                  <td>Mauris</td>
-                </tr>
-                <tr>
-                  <td>1,010</td>
-                  <td>massa</td>
-                  <td>Vestibulum</td>
-                  <td>lacinia</td>
-                  <td>arcu</td>
-                </tr>
-                <tr>
-                  <td>1,011</td>
-                  <td>eget</td>
-                  <td>nulla</td>
-                  <td>Class</td>
-                  <td>aptent</td>
-                </tr>
-                <tr>
-                  <td>1,012</td>
-                  <td>taciti</td>
-                  <td>sociosqu</td>
-                  <td>ad</td>
-                  <td>litora</td>
-                </tr>
-                <tr>
-                  <td>1,013</td>
-                  <td>torquent</td>
-                  <td>per</td>
-                  <td>conubia</td>
-                  <td>nostra</td>
-                </tr>
-                <tr>
-                  <td>1,014</td>
-                  <td>per</td>
-                  <td>inceptos</td>
-                  <td>himenaeos</td>
-                  <td>Curabitur</td>
-                </tr>
-                <tr>
-                  <td>1,015</td>
-                  <td>sodales</td>
-                  <td>ligula</td>
-                  <td>in</td>
-                  <td>libero</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </div> -->
     <!-- libs -->
     <script src="js/libs/jquery-1.11.1.js"></script>
     <script src="js/libs/bootstrap.min.js"></script>
@@ -517,7 +257,9 @@
     <script src="js/models/singleUserTypeModel.js"></script>
     <!-- views (singles) -->
     <script src="js/views/loginFormView.js"></script>
+    <script src="js/views/registerFormView.js"></script>
     <script src="js/views/singleComicView.js"></script>
+    <script src="js/views/mainView.js"></script>
     <!-- views (all) -->
     <script src="js/views/allComicsView.js"></script>
     <!-- collections -->
@@ -525,10 +267,10 @@
     <script src="js/collections/allComics.js"></script>
     <script src="js/collections/allUsers.js"></script>
     <script src="js/collections/allSessions.js"></script>
-    <!-- routes -->
-    <script src="js/routes/routers.js"></script>
     <!-- app -->
     <script src="js/comicApp.js"></script>
+    <!-- routes -->
+    <script src="js/routes/routers.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <script src="js/libs/ie10-viewport-bug-workaround.js"></script>
   </body>

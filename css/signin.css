@@ -1,8 +1,7 @@
-body {
+/*body {
   padding-top: 40px;
   padding-bottom: 40px;
-  background-color: #eee;
-}
+}*/
 
 .checkbox {
   padding-left: 20px;
@@ -38,6 +37,23 @@ body {
   border-bottom-left-radius: 0;
 }
 .form-signin input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+
+#user_name_r {
+  margin-bottom: -1px;
+}
+
+#user_pass_r {
+  
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  margin-bottom: -1px;
+}
+
+#user_pass_r2 {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;

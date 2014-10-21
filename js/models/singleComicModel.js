@@ -8,7 +8,8 @@ app.singleComic = Backbone.Model.extend({
     	name: "",
     	number: 0,
     	cover: "",
-        link: ""
+        link: "",
+        description: ""
     },
 
     initialize: function() {
