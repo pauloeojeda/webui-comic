@@ -1,45 +1,9 @@
 // Namespace our app
 var app = app || {}
 
-app.allSessions = Backbone.Collection.extend({
+app.SessionsCollection = Backbone.Collection.extend({
     model: app.singleSession,
     localStorage: new Backbone.LocalStorage('sessions_store'),
-
-    initialize: function () {
-        app.users_collection.fetch();
-        var users = app.users_collection.toJSON();
-
-        if (app.generic_collection.isEmpty(users)) {
-
-            // add sheldon
-            var admin = new app.singleUser({
-                idUser: 1,
-                //idUserType: admin.get("idUserType"),
-                idUserType: 1,
-                username: "sheldon",
-                password: "bazinga",
-                fullname: "Sheldon L Cooper"
-            });
-
-            app.users_collection.add(admin);
-            admin.save();
-            app.users_collection.fetch();
-
-            /*// add me
-            var user = new app.singleUser({
-                idUser: 2,
-                // idUserType: user.get("idUserType"),
-                idUserType: 2,
-                username: "paulo",
-                password: "123456",
-                fullname: "Paulo E Ojeda"
-            });
-
-            app.users_collection.add(user);
-            user.save();
-            app.users_collection.fetch();*/
-        }
-    },
 
     login: function ( data ) {
         // get the user's data
@@ -110,4 +74,4 @@ app.allSessions = Backbone.Collection.extend({
     }
 });
 
-app.sessions_collection = new app.allSessions();
+app.sessions_collection = new app.SessionsCollection();

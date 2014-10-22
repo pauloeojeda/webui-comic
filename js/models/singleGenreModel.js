@@ -1,7 +1,7 @@
 // Namespace our app
 var app = app || {}
 
-app.Genre = Backbone.Model.extend({
+app.singleGenre = Backbone.Model.extend({
     defaults: {
     	idGenre: 0,
     	name: "",

@@ -1,18 +1,17 @@
 // Namespace our app
 var app = app || {}
 
-app.singleComic = Backbone.Model.extend({
+app.singleGame = Backbone.Model.extend({
     defaults: {
-        idComic: 0,
+        idGame: 0,
         idGenre: 0,
         name: "",
         number: 0,
-        cover: "",
         link: "",
         description: ""
     },
 
     initialize: function() {
-        console.log("A comic instance named " + this.get("name") + " has been created ");
+        console.log("A game instance named " + this.get("name") + " has been created ");
     }
 });

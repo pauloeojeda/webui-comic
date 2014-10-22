@@ -1,7 +1,7 @@
 // Namespace our app
 var app = app || {}
 
-app.Loan = Backbone.Model.extend({
+app.singleLoan = Backbone.Model.extend({
     defaults: {
     	idLoan: 0,
     	idBorrower: 0,

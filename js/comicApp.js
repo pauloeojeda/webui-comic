@@ -158,41 +158,29 @@ var user =  new app.singleUserType({
     description: "// include BanHammer.*"
 });
 
+(function() { // initialize user store
+    app.users_collection.fetch();
+    var users = app.users_collection.toJSON();
 
+    if (app.generic_collection.isEmpty(users)) {
 
-/*
-var sheldon = new app.singleUser({
-    idUser: 1,
-    idUserType: admin.get("idUserType"),
-    username: "sheldon",
-    password: "bazinga",
-    fullname: "Sheldon L Cooper"
-});
-*/
+        // add sheldon
+        var admin = new app.singleUser({
+            idUser: 1,
+            //idUserType: admin.get("idUserType"),
+            idUserType: 1,
+            username: "sheldon",
+            password: "bazinga",
+            fullname: "Sheldon L Cooper"
+        });
 
-/*
-var paulo = new app.singleUser({
-    idUser: 2,
-    idUserType: user.get("idUserType"),
-    username: "paulo",
-    password: "123456",
-    fullname: "Paulo E Ojeda"
-});
-*/
+        app.users_collection.add(admin);
+        admin.save();
+        app.users_collection.fetch();
+    }
+})();
 
-
-
-/*var loginForm = new app.loginFormView();
-$("#loginForm").html(loginForm.render());*/
-
-/*
-
-Used to render the whole gallery
-var comicGroupView = new app.allComicsView({ collection: comicGroup});
-$("#allComics").html(comicGroupView.render().el);
-*/
-
-
+// Other JS code required
 $(document).ready(function(){$(".alert").addClass("in").fadeOut(4500);
 
 /* swap open/close side menu icons */

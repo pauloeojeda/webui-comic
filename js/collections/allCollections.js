@@ -1,7 +1,7 @@
 // Namespace our app
 var app = app || {}
 
-app.AllCollections = Backbone.Collection.extend({
+app.GenericCollection = Backbone.Collection.extend({
 
     model: new Backbone.Model({}),
 
@@ -15,4 +15,4 @@ app.AllCollections = Backbone.Collection.extend({
     }
 });
 
-app.generic_collection = new app.AllCollections();
+app.generic_collection = new app.GenericCollection();
