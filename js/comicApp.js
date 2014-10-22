@@ -1,8 +1,8 @@
 var marvel1 = new app.singleComic({
     idComic: 1,
     idGenre: 1,
-    name: "marvel1",
-    number: 1,
+    name: "Wolverine",
+    number: 131,
     cover: "images/marvel1.jpg",
     link: "marvel1",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
@@ -11,8 +11,8 @@ var marvel1 = new app.singleComic({
 var marvel2 = new app.singleComic({
     idComic: 2,
     idGenre: 1,
-    name: "marvel2",
-    number: 2,
+    name: "Wolverine",
+    number: 132,
     cover: "images/marvel2.jpg",
     link: "marvel2",
     description: "sed do eiusmod tempor incididunt ut labore et"
@@ -21,8 +21,8 @@ var marvel2 = new app.singleComic({
 var marvel3 = new app.singleComic({
     idComic: 3,
     idGenre: 1,
-    name: "marvel3",
-    number: 3,
+    name: "Wolverine",
+    number: 133,
     cover: "images/marvel3.jpg",
     link: "marvel3",
     description: "dolore magna aliqua. Ut enim ad minim veniam"
@@ -31,28 +31,18 @@ var marvel3 = new app.singleComic({
 var marvel4 = new app.singleComic({
     idComic: 4,
     idGenre: 1,
-    name: "marvel4",
-    number: 4,
+    name: "Wolverine",
+    number: 134,
     cover: "images/marvel4.jpg",
     link: "marvel4",
     description: "quis nostrud exercitation ullamco laboris nisi ut aliquip"
 });
 
-var marvel4 = new app.singleComic({
-    idComic: 4,
-    idGenre: 1,
-    name: "marvel4",
-    number: 4,
-    cover: "images/marvel4.jpg",
-    link: "marvel4",
-    description: "ex ea commodo consequat. Duis aute irure dolor"
-});
-
 var marvel5 = new app.singleComic({
     idComic: 5,
     idGenre: 1,
-    name: "marvel5",
-    number: 5,
+    name: "Wolverine",
+    number: 135,
     cover: "images/marvel5.jpg",
     link: "marvel5",
     description: "in reprehenderit in voluptate velit esse cillum dolore"
@@ -61,8 +51,8 @@ var marvel5 = new app.singleComic({
 var marvel6 = new app.singleComic({
     idComic: 6,
     idGenre: 1,
-    name: "marvel6",
-    number: 6,
+    name: "Wolverine",
+    number: 136,
     cover: "images/marvel6.jpg",
     link: "marvel6",
     description: "eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat"
@@ -71,8 +61,8 @@ var marvel6 = new app.singleComic({
 var marvel7 = new app.singleComic({
     idComic: 7,
     idGenre: 1,
-    name: "marvel7",
-    number: 7,
+    name: "Wolverine",
+    number: 137,
     cover: "images/marvel7.jpg",
     link: "marvel7",
     description: "non proident, sunt in culpa qui officia deserunt"
@@ -81,8 +71,8 @@ var marvel7 = new app.singleComic({
 var marvel8 = new app.singleComic({
     idComic: 8,
     idGenre: 1,
-    name: "marvel8",
-    number: 8,
+    name: "Wolverine",
+    number: 138,
     cover: "images/marvel8.jpg",
     link: "marvel8",
     description: "mollit anim id est laborum."
@@ -91,8 +81,8 @@ var marvel8 = new app.singleComic({
 var marvel9 = new app.singleComic({
     idComic: 9,
     idGenre: 1,
-    name: "marvel9",
-    number: 9,
+    name: "Wolverine",
+    number: 139,
     cover: "images/marvel9.jpg",
     link: "marvel9",
     description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
@@ -101,7 +91,7 @@ var marvel9 = new app.singleComic({
 var scifi0 = new app.singleComic({
     idComic: 10,
     idGenre: 2,
-    name: "scifi0",
+    name: "Strange Adventures",
     number: 10,
     cover: "images/scifi0.jpg",
     link: "scifi0",
@@ -111,7 +101,7 @@ var scifi0 = new app.singleComic({
 var scifi1 = new app.singleComic({
     idComic: 11,
     idGenre: 1,
-    name: "scifi1",
+    name: "Incredible Science Fiction",
     number: 11,
     cover: "images/scifi1.jpg",
     link: "scifi1",
@@ -121,7 +111,7 @@ var scifi1 = new app.singleComic({
 var scifi2 = new app.singleComic({
     idComic: 12,
     idGenre: 2,
-    name: "scifi2",
+    name: "Strange Worlds",
     number: 12,
     cover: "images/scifi2.jpg",
     link: "scifi2",
@@ -131,7 +121,7 @@ var scifi2 = new app.singleComic({
 var scifi3 = new app.singleComic({
     idComic: 13,
     idGenre: 2,
-    name: "scifi3",
+    name: "Zap",
     number: 13,
     cover: "images/scifi3.jpg",
     link: "scifi3",
@@ -141,7 +131,7 @@ var scifi3 = new app.singleComic({
 var scifi4 = new app.singleComic({
     idComic: 14,
     idGenre: 2,
-    name: "scifi4",
+    name: "Weird Science",
     number: 14,
     cover: "images/scifi4.jpg",
     link: "scifi4",
@@ -201,3 +191,13 @@ Used to render the whole gallery
 var comicGroupView = new app.allComicsView({ collection: comicGroup});
 $("#allComics").html(comicGroupView.render().el);
 */
+
+
+$(document).ready(function(){$(".alert").addClass("in").fadeOut(4500);
+
+/* swap open/close side menu icons */
+$('[data-toggle=collapse]').click(function(){
+    // toggle icon
+    $(this).find("i").toggleClass("glyphicon-chevron-right glyphicon-chevron-down");
+});
+});

@@ -1,9 +1,10 @@
 app.Router = Backbone.Router.extend({
     routes:{
-        ''          : 'login',
-        'logout'    : 'logout',
-        'register'  : 'register',
-        'home'      : 'home'
+        ''                  : 'login',
+        'user:logout'       : 'logout',
+        'register'          : 'register',
+        'home'              : 'home',
+        'admin:dashboard'   : 'dashboard'
     },
 
     login : function () {
@@ -11,14 +12,14 @@ app.Router = Backbone.Router.extend({
     },
 
     logout: function () {
-        app.loginFormView.logout()
+        app.loginform.logout();
     },
 
     register: function () {
         app.registerform.render();
     },
 
-    home : function () {
+    home: function () {
         var login = app.sessions_collection.check_login();
         if (!app.generic_collection.isEmpty(login)) {
             //app.allcomics.render();
@@ -27,6 +28,10 @@ app.Router = Backbone.Router.extend({
             $("#contentArea").html(new app.allComicsView({ collection: comicGroup}).el);
             //new app.allComicsView({ collection: comicGroup});
         }
+    },
+
+    dashboard: function () {
+        app.admindashboard.render();
     }
     
 });
