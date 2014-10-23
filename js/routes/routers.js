@@ -8,6 +8,7 @@ app.Router = Backbone.Router.extend({
     },
 
     login : function () {
+        app.sessions_collection.clearSession();
         app.loginform.render();
     },
 
@@ -16,17 +17,15 @@ app.Router = Backbone.Router.extend({
     },
 
     register: function () {
+        app.sessions_collection.clearSession();
         app.registerform.render();
     },
 
     home: function () {
         var login = app.sessions_collection.check_login();
         if (!app.generic_collection.isEmpty(login)) {
-            //app.allcomics.render();
-            //$("#content").html(new app.allComicsView({ collection: comicGroup}).render().el);
             new app.mainView();
-            $("#contentArea").html(new app.allComicsView({ collection: comicGroup}).el);
-            //new app.allComicsView({ collection: comicGroup});
+            $("#contentArea").html(new app.allComicsView({ collection: comicGroup}).render().el);
         }
     },
 

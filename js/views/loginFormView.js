@@ -10,11 +10,8 @@ app.loginFormView = Backbone.View.extend({
 
     events: {
         'click #btn_generic_login'      : 'login',
+        'keyup #user_pass'              : 'enter',
         'click #btn_generic_register'   : 'register'
-    },
-
-    initialize: function () {
-        this.render();
     },
 
     render: function () {
@@ -27,25 +24,39 @@ app.loginFormView = Backbone.View.extend({
             password : $('#user_pass').val()
         };
 
-        var login = app.sessions_collection.login(user);
-
-        if(login)
-        {
-            // DO LOGIN
-            //$('#login_error').html();
-            window.location.replace('#home');
-        }
-        else
-        {
-            // RETURN ERROR
-            this.loginError();
+        if (this.validate(user)) {
+            var login = app.sessions_collection.login(user);
+            if(typeof login == "string") {
+                this.loginError(login);
+            } else {
+                // do login
+                window.location.replace('#home');
+            }            
         }
     },
 
-    loginError: function () {
-        // login error message
-        //$('#login_error').html('Your username or password are incorrect.');
-        alert('login error!')
+    validate: function (data) {
+        if((data.username).length == 0 && (data.password).length == 0){
+            alert('Please, fill in all the fields');
+            return false;
+        };
+        return true;
+    },
+
+    loginError: function (msg) {
+        switch(msg){
+            case "mismatch":
+                alert("There's a mismatch between the username and the password provided.\nPlease, try again");
+                break;
+            case "user404":
+                alert("We couldn't find a user in our system that matches that username.\nPlease, try again");
+                break;
+            default:
+                alert("Woops! " + msg);
+                break;
+        }
+        $('#user_name').val("");
+        $('#user_pass').val("");
     },
 
     logout: function() {
@@ -54,6 +65,12 @@ app.loginFormView = Backbone.View.extend({
 
     register: function () {
         window.location.replace('#register');
+    },
+
+    enter: function (e) {
+        if (e.keyCode == 13) {
+            this.login();
+        }
     }
 
 });

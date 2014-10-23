@@ -10,6 +10,7 @@ app.registerFormView = Backbone.View.extend({
 
     events: {
         'click #btn_generic_login_2'      : 'login',
+        'keyup #user_pass_r2'             : 'enter',
         'click #btn_generic_register_2'   : 'register'
     },
 
@@ -26,8 +27,71 @@ app.registerFormView = Backbone.View.extend({
     },
 
     register: function () {
-        // TO DO
-        window.location.replace('#home');
+        app.users_collection.fetch();
+        var user = {
+            username : $('#user_name_r').val(),
+            password : $('#user_pass_r').val(),
+            passconf : $('#user_pass_r2').val()
+        };
+
+        if(this.validate(user)) {
+            var register = app.users_collection.register(user);
+
+            if(register)
+            {
+                window.location.replace('');
+                alert('Registered successfully!\nPlease log in below');
+            } else {
+                this.registerError();
+            }
+        }
+    },
+
+    validate: function (user) {
+        if((user.username).length == 0 || (user.password).length == 0){
+            alert('Please, fill in all the fields');
+            return false;
+        };
+        if ((user.password).length < 7) {
+            alert('Your password must have at least 7 characters. Please choose a longer one');
+            this.clearPasswordsFields();
+            return false;
+        };
+        if(! (/^([a-zA-Z0-9]{1,})$/.test(user.username))) {
+            alert('Neither your username, nor your password, can contain special characters.\nPlease choose another one');
+            this.clearUsernameField();
+            return false;
+        };
+        if(! (/^([a-zA-Z0-9]{7,})$/.test(user.password))) {
+            alert('Neither your username, nor your password, can contain special characters.\nPlease choose another one');
+            this.clearPasswordsFields();
+            return false;
+        };
+        if (user.password != user.passconf) {
+            alert('Passwords mismatch! Try Again');
+            this.clearPasswordsFields();
+            return false;
+        }
+        return true;
+    },
+
+    clearUsernameField: function () {
+        $('#user_name_r').val('');
+    },
+
+    clearPasswordsFields: function () {
+        $('#user_pass_r').val('');
+        $('#user_pass_r2').val('');
+    },
+
+    registerError: function () {
+        alert("There's already an user with that username.\nPlease choose another one");
+    },
+
+    enter: function (e) {
+        if (e.keyCode == 13) {
+            this.register();
+        }
     }
 
 });

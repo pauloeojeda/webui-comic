@@ -6,40 +6,46 @@ app.SessionsCollection = Backbone.Collection.extend({
     localStorage: new Backbone.LocalStorage('sessions_store'),
 
     login: function ( data ) {
-        // get the user's data
-        var user = app.users_collection.where({ username: data.username, password: data.password });
+        // try to find a registered user whose username matches
+        var user = app.users_collection.findWhere({ username: data.username });
+        if (!app.generic_collection.isEmpty(user)) {
+            // now let's try to find the exact match
+            var user = app.users_collection.findWhere({ username: data.username, password: data.password });
 
-        // check if the user exists
-        if (!app.generic_collection.isEmpty(user[0])) {
-            user = user[0];
-
-            app.sessions_collection.fetch();
-
-            // originally get(0)
-            var session = app.sessions_collection.at(0);
-
-            if (app.generic_collection.isEmpty(session)) {
-                session = new app.singleSession({ session: true });
-
-                app.sessions_collection.add(session);
-                session.save();
+            // did we find it?
+            if (!app.generic_collection.isEmpty(user)) {
+                // we sure did
                 app.sessions_collection.fetch();
+
+                // originally get(0)
+                var session = app.sessions_collection.at(0);
+
+                if (app.generic_collection.isEmpty(session)) {
+                    session = new app.singleSession({ session: true });
+
+                    app.sessions_collection.add(session);
+                    session.save();
+                    app.sessions_collection.fetch();
+                } else {
+                    session.set({
+                        session: true
+                    });
+                    session.save();
+                    app.sessions_collection.fetch();
+                }
+                return true;
             } else {
-                session.set({
-                    session: true
-                });
-                session.save();
-                app.sessions_collection.fetch();
+                // no we haven't. there's a mismatch in the user-pass pair
+                return 'mismatch';
             }
-            return true;
         } else {
-            // login failed
-            return false;
+            // there was not such a user with that username
+            return 'user404';
         }
     },
 
     check_login: function () {
-        // get the user's data
+        // get the users' data
         app.sessions_collection.fetch();
         // originally get(0)
         var session = app.sessions_collection.at(0);
@@ -55,7 +61,13 @@ app.SessionsCollection = Backbone.Collection.extend({
     },
 
     logout: function () {
-        // get the user's data
+        this.clearSession();
+
+        window.location.href = '';
+    },
+
+    clearSession: function () {
+        // get the users' data
         app.sessions_collection.fetch();
 
         //originally get(0)
@@ -69,8 +81,6 @@ app.SessionsCollection = Backbone.Collection.extend({
             session.save();
             app.sessions_collection.fetch();
         }
-
-        window.location.href = '';
     }
 });
 

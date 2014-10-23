@@ -4,13 +4,8 @@ var app = app || {};
 // The view for all the comics
 app.allComicsView = Backbone.View.extend({
 
-    //el: '#contentArea',
     tagName: "section",
     class: "comicGallery",
-
-    initialize: function () {
-        this.render();
-    },
 
     render: function() {
         this.collection.each(this.addComic, this);
