@@ -1,0 +1,128 @@
+[
+    {
+        "idComic": 10,
+        "idGenre": 2,
+        "name": "Strange Adventures",
+        "number": 10,
+        "cover": "images/scifi0.jpg",
+        "link": "scifi0",
+        "description": "sed do eiusmod tempor incididunt ut labore et"
+    },
+    {
+        "idComic": 11,
+        "idGenre": 1,
+        "name": "Incredible Science Fiction",
+        "number": 11,
+        "cover": "images/scifi1.jpg",
+        "link": "scifi1",
+        "description": "dolore magna aliqua. Ut enim ad minim veniam"
+    },
+    {
+        "idComic": 12,
+        "idGenre": 2,
+        "name": "Strange Worlds",
+        "number": 12,
+        "cover": "images/scifi2.jpg",
+        "link": "scifi2",
+        "description": "quis nostrud exercitation ullamco laboris nisi ut aliquip"
+    },
+    {
+        "idComic": 13,
+        "idGenre": 2,
+        "name": "Zap",
+        "number": 13,
+        "cover": "images/scifi3.jpg",
+        "link": "scifi3",
+        "description": "ex ea commodo consequat. Duis aute irure dolor"
+    },
+    {
+        "idComic": 14,
+        "idGenre": 2,
+        "name": "Weird Science",
+        "number": 14,
+        "cover": "images/scifi4.jpg",
+        "link": "scifi4",
+        "description": "in reprehenderit in voluptate velit esse cillum dolore"
+    },
+    {
+        "idComic": 1,
+        "idGenre": 1,
+        "name": "Wolverine",
+        "number": 131,
+        "cover": "images/marvel1.jpg",
+        "link": "marvel1",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+    },
+    {
+        "idComic": 2,
+        "idGenre": 1,
+        "name": "Wolverine",
+        "number": 132,
+        "cover": "images/marvel2.jpg",
+        "link": "marvel2",
+        "description": "sed do eiusmod tempor incididunt ut labore et"
+    },
+    {
+        "idComic": 3,
+        "idGenre": 1,
+        "name": "Wolverine",
+        "number": 133,
+        "cover": "images/marvel3.jpg",
+        "link": "marvel3",
+        "description": "dolore magna aliqua. Ut enim ad minim veniam"
+    },
+    {
+        "idComic": 4,
+        "idGenre": 1,
+        "name": "Wolverine",
+        "number": 134,
+        "cover": "images/marvel4.jpg",
+        "link": "marvel4",
+        "description": "quis nostrud exercitation ullamco laboris nisi ut aliquip"
+    },
+    {
+        "idComic": 5,
+        "idGenre": 1,
+        "name": "Wolverine",
+        "number": 135,
+        "cover": "images/marvel5.jpg",
+        "link": "marvel5",
+        "description": "in reprehenderit in voluptate velit esse cillum dolore"
+    },
+    {
+        "idComic": 6,
+        "idGenre": 1,
+        "name": "Wolverine",
+        "number": 136,
+        "cover": "images/marvel6.jpg",
+        "link": "marvel6",
+        "description": "eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat"
+    },
+    {
+        "idComic": 7,
+        "idGenre": 1,
+        "name": "Wolverine",
+        "number": 137,
+        "cover": "images/marvel7.jpg",
+        "link": "marvel7",
+        "description": "non proident, sunt in culpa qui officia deserunt"
+    },
+    {
+        "idComic": 8,
+        "idGenre": 1,
+        "name": "Wolverine",
+        "number": 138,
+        "cover": "images/marvel8.jpg",
+        "link": "marvel8",
+        "description": "mollit anim id est laborum."
+    },
+    {
+        "idComic": 9,
+        "idGenre": 1,
+        "name": "Wolverine",
+        "number": 139,
+        "cover": "images/marvel9.jpg",
+        "link": "marvel9",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+    }
+]

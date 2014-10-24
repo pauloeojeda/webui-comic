@@ -77,15 +77,18 @@ app.registerFormView = Backbone.View.extend({
 
     clearUsernameField: function () {
         $('#user_name_r').val('');
+        $('#user_name_r').focus();
     },
 
     clearPasswordsFields: function () {
         $('#user_pass_r').val('');
         $('#user_pass_r2').val('');
+        $('#user_pass_r').focus();
     },
 
     registerError: function () {
         alert("There's already an user with that username.\nPlease choose another one");
+        this.clearUsernameField();
     },
 
     enter: function (e) {

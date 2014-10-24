@@ -4,6 +4,7 @@ var app = app || {}
 app.UsersCollection = Backbone.Collection.extend({
     model: app.singleUser,
     localStorage: new Backbone.LocalStorage('users_store'),
+    url: 'json/users.json',
 
     register: function ( data ) {
         // let's search if the user already is registered

@@ -25,9 +25,9 @@ app.loginFormView = Backbone.View.extend({
         };
 
         if (this.validate(user)) {
-            var login = app.sessions_collection.login(user);
-            if(typeof login == "string") {
-                this.loginError(login);
+            var result = app.sessions_collection.login(user);
+            if(typeof result == "string") {
+                this.loginError(result);
             } else {
                 // do login
                 window.location.replace('#home');
@@ -57,6 +57,7 @@ app.loginFormView = Backbone.View.extend({
         }
         $('#user_name').val("");
         $('#user_pass').val("");
+        $('#user_name').focus();
     },
 
     logout: function() {

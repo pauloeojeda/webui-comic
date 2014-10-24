@@ -189,3 +189,43 @@ $('[data-toggle=collapse]').click(function(){
     $(this).find("i").toggleClass("glyphicon-chevron-right glyphicon-chevron-down");
 });
 });
+
+// Handy download function
+(function(console){
+
+console.save = function(data, filename){
+
+    if(!data) {
+        console.error('Console.save: No data')
+        return;
+    }
+
+    if(!filename) filename = 'console.json'
+
+    if(typeof data === "object"){
+        data = JSON.stringify(data, undefined, 4)
+    }
+
+    var blob = new Blob([data], {type: 'text/json'}),
+        e    = document.createEvent('MouseEvents'),
+        a    = document.createElement('a')
+
+    a.download = filename
+    a.href = window.URL.createObjectURL(blob)
+    a.dataset.downloadurl =  ['text/json', a.download, a.href].join(':')
+    e.initMouseEvent('click', true, false, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null)
+    a.dispatchEvent(e)
+ }
+})(console);
+
+// We need to keep the functionality of being able to bindAll to entire object w/out specifying each function name individually
+_.bindAll = function(obj){
+    var funcs = Array.prototype.slice.call(arguments, 1);
+    if (funcs.length == 0) funcs = _.functions(obj);
+    _.each(funcs, function(f) {
+        if(f !== 'constructor' && f != 'initialize' ){ // binding to the constructor / initialize is a dangerous practice that can cause problems
+            obj[f] = _.bind(obj[f], obj);
+        }
+    });
+    return obj;
+};

@@ -4,7 +4,7 @@ var app = app || {}
 // The view for the login form
 app.adminDashboardView = Backbone.View.extend({
 
-    el: 'body',
+    el: '.site',
 
     template: $('#adminDashboard').html(),
 
