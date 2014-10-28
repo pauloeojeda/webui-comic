@@ -1,0 +1,14 @@
+[
+    {
+        "idGenre": 1,
+        "name": "Superhero",
+	"link": "superhero",
+        "description": "Superhero comics are a form of American comic books. The form rose to prominence in the 1930s and 1940s and has remained the dominant form of comic book in North America since the 1960s. Superhero comics feature stories about superheroes and the universes these characters inhabit."
+    },
+    {
+        "idGenre": 2,
+        "name": "Science fiction",
+	"link": "scifi",
+        "description": "Science fiction comics began as early as the 1930s in US newspapers. They have since spread to many countries around the world, with the two largest publishers of this comic genre today arguably being the United States and Japan."
+    }
+]

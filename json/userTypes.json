@@ -1,0 +1,12 @@
+[
+    {
+        "idUserType": 1,
+        "name": "admin",
+        "description": "include BanHammer.*"
+    },
+    {
+        "idUserType": 2,
+        "name": "user",
+        "description": "// include BanHammer.*"
+    }
+]

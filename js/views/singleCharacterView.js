@@ -2,9 +2,9 @@
 var app = app || {}
 
 // The view for a single model view, which is one comic
-app.singleComicView = Backbone.View.extend({
-    tagName: "article",
-    className: "comicListItem",
+app.singleCharacterView = Backbone.View.extend({
+
+    tagName: "li",
     template   : null,
 
     initialize : function(){
@@ -13,7 +13,7 @@ app.singleComicView = Backbone.View.extend({
         //_.bindAll(this);
 
         //later we will see complex template engines, but is the basic from underscore
-        this.template = _.template( $("#comicElement").html() );
+        this.template = _.template( $("#featuredCharacter").html() );
     },
 
     render: function(){

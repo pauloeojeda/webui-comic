@@ -10,7 +10,7 @@
     },
     {
         "idComic": 11,
-        "idGenre": 1,
+        "idGenre": 2,
         "name": "Incredible Science Fiction",
         "number": 11,
         "cover": "images/scifi1.jpg",
@@ -92,7 +92,7 @@
     {
         "idComic": 6,
         "idGenre": 1,
-        "name": "Wolverine",
+        "name": "Ghost Rider",
         "number": 136,
         "cover": "images/marvel6.jpg",
         "link": "marvel6",

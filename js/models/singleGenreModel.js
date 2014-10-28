@@ -3,8 +3,9 @@ var app = app || {}
 
 app.singleGenre = Backbone.Model.extend({
     defaults: {
-    	idGenre: 0,
-    	name: "",
-    	description: ""
+        idGenre: 0,
+        name: "",
+        link: "",
+        description: ""
     }
 });

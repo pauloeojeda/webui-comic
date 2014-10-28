@@ -122,33 +122,15 @@
                               <li><a href="#news:loans">Most Loans</a></li>
                             </ul>
                           </li>
-                          <li class="dropdown">
+                          <li id="charactersDropdown" class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Characters <span class="caret"></span></a>
-                            <ul class="dropdown-menu" role="menu">
-                              <li class="dropdown-header">Featured</li>
-                              <li><a href="#character:avengers">Avengers</a></li>
-                              <li><a href="#character:ironman">Iron Man</a></li>
-                              <li><a href="#character:captainamerica">Captain America</a></li>
-                              <li><a href="#character:hulk">Hulk</a></li>
-                              <li><a href="#character:spiderman">Spider Man</a></li>
-                              <li><a href="#character:thor">Thor</a></li>
-                              <li><a href="#character:xmen">X-Men</a></li>
-                              <li><a href="#character:storm">Storm</a></li>
-                              <li><a href="#character:fantasticfour">Fantastic Four</a></li>
-                              <li><a href="#character:blackwidow">Black Widow</a></li>
-                              <li><a href="#character:shield">S.H.I.E.L.D.</a></li>
-                              <li><a href="#character:guardiansofthegalaxy">Guardians of the Galaxy</a></li>
-                              <li class="divider"></li>
-                              <li class="dropdown-header">More</li>
-                              <li><a href="#character:all">See All Characters</a></li>
-                            </ul>
                           </li>
                       </ul>
                       <ul class="nav navbar-nav navbar-right">
                         <li>
                           <form class="navbar-form navbar-left" role="search">
                             <div class="form-group">
-                              <input type="text" class="form-control" placeholder="Quick Search">
+                              <input id="quickSearch" type="text" class="form-control" placeholder="Quick Search">
                             </div>
                           </form>
                         </li>
@@ -167,14 +149,14 @@
                           </ul>
                         </li>
                         <li class="dropdown">
-                          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Sheldon <span class="glyphicon glyphicon-user"></span></a>
+                          <a id="usernameNavbar" href="#" class="dropdown-toggle" data-toggle="dropdown">User <span class="glyphicon glyphicon-user"></span></a>
                           <ul class="dropdown-menu" role="menu">
                             <li class="dropdown-header">User</li>
                             <li><a href="#user:account">Account</a></li>
                             <li><a href="#user:profile">Profile</a></li>
-                            <li class="divider"></li>
-                            <li class="dropdown-header">Admin</li>
-                            <li><a href="#admin:dashboard">Dashboard</a></li>
+                            <li class="divider adminOption"></li>
+                            <li class="dropdown-header adminOption">Admin</li>
+                            <li class="adminOption"><a href="#admin:dashboard">Dashboard</a></li>
                             <li class="divider"></li>
                             <li><a href="#user:logout">Logout</a></li>
                           </ul>
@@ -680,6 +662,10 @@
       </div><!-- /.modal -->
     </script>
 
+    <script id="featuredCharacter" type="text/template">
+      <a href="#character:<%= link %>"><%= name %></a>
+    </script>
+
     <!-- libs -->
     <script src="js/libs/jquery-1.11.1.js"></script>
     <script src="js/libs/bootstrap.min.js"></script>
@@ -688,8 +674,15 @@
     <script src="js/libs/backbone.localStorage.js"></script>
     <script src="js/libs/docs.min.js"></script>
 
+    <!-- Handy utils and patches to the libraries -->
+    <script src="js/underscoreBindAll.js"></script>
+
+    <script src="js/consoleSave.js"></script>
+
     <!-- models -->
     <script src="js/models/singleBorrowerModel.js"></script>
+    <script src="js/models/singleCharacterModel.js"></script>
+    <script src="js/models/singleCharacterPerComicModel.js"></script>
     <script src="js/models/singleComicModel.js"></script>
     <script src="js/models/singleGameModel.js"></script>
     <script src="js/models/singleGenreModel.js"></script>
@@ -699,9 +692,16 @@
     <script src="js/models/singleUserModel.js"></script>
     <script src="js/models/singleUserTypeModel.js"></script>
     <script src="js/models/singleVideoModel.js"></script>
+
+    <!-- views (singles) -->
+    <script src="js/views/singleComicView.js"></script>
+    <script src="js/views/singleCharacterView.js"></script>
+
     <!-- collections -->
     <script src="js/collections/allCollections.js"></script>
     <script src="js/collections/allBorrowers.js"></script>
+    <script src="js/collections/allCharacters.js"></script>
+    <script src="js/collections/allCharactersPerComic.js"></script>
     <script src="js/collections/allComics.js"></script>
     <script src="js/collections/allGames.js"></script>
     <script src="js/collections/allGenres.js"></script>
@@ -712,18 +712,16 @@
     <script src="js/collections/allUserTypes.js"></script>
     <script src="js/collections/allVideos.js"></script>
 
+    <!-- views (all) -->
+    <script src="js/views/allComicsView.js"></script>
+    <script src="js/views/allCharactersDropdownView.js"></script>
+
     <!-- views (specific) -->
     <script src="js/views/loginFormView.js"></script>
     <script src="js/views/registerFormView.js"></script>
     <script src="js/views/mainView.js"></script>
     <script src="js/views/adminDashboardView.js"></script>
 
-    <!-- views (singles) -->
-    <script src="js/views/singleComicView.js"></script>
-
-    <!-- views (all) -->
-    <script src="js/views/allComicsView.js"></script>
-    
     <!-- app -->
     <script src="js/comicApp.js"></script>
 

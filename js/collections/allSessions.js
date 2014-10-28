@@ -24,15 +24,14 @@ app.SessionsCollection = Backbone.Collection.extend({
                     session = new app.singleSession({ session: true });
 
                     app.sessions_collection.add(session);
-                    session.save();
-                    app.sessions_collection.fetch();
                 } else {
                     session.set({
                         session: true
                     });
-                    session.save();
-                    app.sessions_collection.fetch();
                 }
+                session.set({idUser: user.id});
+                session.save();
+                app.sessions_collection.fetch();
                 return true;
             } else {
                 // no we haven't. there's a mismatch in the user-pass pair

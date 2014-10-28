@@ -19,9 +19,9 @@ var TestView = Backbone.View.extend({
     //here we do the AJAX Request to get our json file, also provide a success and error
     //callbacks
     this.collection.fetch({
-    add: true,
-    success: this.loadCompleteHandler,
-    error: this.errorHandler
+      add: true,
+      success: this.loadCompleteHandler,
+      error: this.errorHandler
     });
   },  
 
@@ -46,7 +46,6 @@ var TestView = Backbone.View.extend({
   render : function(){
     //we assign our element into the available dom element
     $('#main').append($(this.el));
-
     return this;
   }
 });
