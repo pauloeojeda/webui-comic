@@ -4,6 +4,7 @@ app.Router = Backbone.Router.extend({
         'user:logout'       : 'logout',
         'register'          : 'register',
         'api'               : 'api',
+        'resetApiKey'       : 'resetApiKey',
         'home'              : 'home',
         'admin:dashboard'   : 'dashboard',
         'genre:name'        : 'genre',
@@ -38,6 +39,11 @@ app.Router = Backbone.Router.extend({
         } else {
             app.router.navigate('', {trigger: true});
         }
+    },
+
+    resetApiKey: function () {
+        app.marvel_api_keys_collection.clearMarvelKey();
+        app.router.navigate('api', {trigger: true});
     },
 
     loggedIn: function() {
