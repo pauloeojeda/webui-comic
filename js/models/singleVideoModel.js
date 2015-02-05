@@ -10,9 +10,5 @@ app.singleVideo = Backbone.Model.extend({
         link: "",
         url:"",
         description: ""
-    },
-
-    initialize: function() {
-        console.log("A video instance named " + this.get("name") + " has been created ");
     }
 });

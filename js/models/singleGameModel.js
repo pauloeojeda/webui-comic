@@ -9,9 +9,5 @@ app.singleGame = Backbone.Model.extend({
         number: 0,
         link: "",
         description: ""
-    },
-
-    initialize: function() {
-        console.log("A game instance named " + this.get("name") + " has been created ");
     }
 });

@@ -32,7 +32,6 @@ app.allCharactersDropdownView = Backbone.View.extend({
     },
 
     loadSuccessHandler: function () {
-        console.log('All characters were loaded without errors!');
         this.render();
     },
 

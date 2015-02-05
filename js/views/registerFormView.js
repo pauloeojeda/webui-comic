@@ -6,6 +6,8 @@ app.registerFormView = Backbone.View.extend({
 
     el: '#content',
 
+    errorEl: '#errorRegister',
+
     template: $('#registerFormTemplate').html(),
 
     events: {
@@ -23,7 +25,7 @@ app.registerFormView = Backbone.View.extend({
     },
 
     login: function () {
-        window.location.replace('');
+        app.router.navigate('', {trigger: true});
     },
 
     register: function () {
@@ -39,8 +41,8 @@ app.registerFormView = Backbone.View.extend({
 
             if(register)
             {
-                window.location.replace('');
-                alert('Registered successfully!\nPlease log in below');
+                app.router.navigate('', {trigger: true});
+                app.util.displayError(this.errorEl, "Registered successfully!\nPlease log in below");
             } else {
                 this.registerError();
             }
@@ -49,26 +51,26 @@ app.registerFormView = Backbone.View.extend({
 
     validate: function (user) {
         if((user.username).length == 0 || (user.password).length == 0){
-            alert('Please, fill in all the fields');
+            app.util.displayError(this.errorEl, "Please, fill in all the fields");
             return false;
         };
         if ((user.password).length < 7) {
-            alert('Your password must have at least 7 characters. Please choose a longer one');
+            app.util.displayError(this.errorEl, "Your password must have at least 7 characters. Please choose a longer one");
             this.clearPasswordsFields();
             return false;
         };
         if(! (/^([a-zA-Z0-9]{1,})$/.test(user.username))) {
-            alert('Neither your username, nor your password, can contain special characters.\nPlease choose another one');
+            app.util.displayError(this.errorEl, "Neither your username, nor your password, can contain special characters.\nPlease choose another one");
             this.clearUsernameField();
             return false;
         };
         if(! (/^([a-zA-Z0-9]{7,})$/.test(user.password))) {
-            alert('Neither your username, nor your password, can contain special characters.\nPlease choose another one');
+            app.util.displayError(this.errorEl, "Neither your username, nor your password, can contain special characters.\nPlease choose another one");
             this.clearPasswordsFields();
             return false;
         };
         if (user.password != user.passconf) {
-            alert('Passwords mismatch! Try Again');
+            app.util.displayError(this.errorEl, "Passwords mismatch! Try Again");
             this.clearPasswordsFields();
             return false;
         }
@@ -87,7 +89,7 @@ app.registerFormView = Backbone.View.extend({
     },
 
     registerError: function () {
-        alert("There's already an user with that username.\nPlease choose another one");
+        app.util.displayError(this.errorEl, "There's already an user with that username.\nPlease choose another one");
         this.clearUsernameField();
     },
 

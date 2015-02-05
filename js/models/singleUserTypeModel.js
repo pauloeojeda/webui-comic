@@ -6,9 +6,5 @@ app.singleUserType = Backbone.Model.extend({
         idUserType: 0,
         name: "",
         description: ""
-    },
-
-    initialize: function() {
-        console.log("A user type named " + this.get("name") + " has been created");
     }
 });

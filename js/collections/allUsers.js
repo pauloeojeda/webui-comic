@@ -10,7 +10,7 @@ app.UsersCollection = Backbone.Collection.extend({
         // let's search if the user already is registered
         var user = app.users_collection.findWhere({ username: data.username });
         // check if the user already exists
-        if (app.generic_collection.isEmpty(user)) {
+        if (app.util.isEmpty(user)) {
             app.users_collection.fetch();
 
             var newUser = new app.singleUser({username: data.username, password: data.password});

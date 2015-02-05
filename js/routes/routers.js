@@ -3,33 +3,47 @@ app.Router = Backbone.Router.extend({
         ''                  : 'login',
         'user:logout'       : 'logout',
         'register'          : 'register',
+        'api'               : 'api',
         'home'              : 'home',
         'admin:dashboard'   : 'dashboard',
         'genre:name'        : 'genre',
         'character:name'    : 'character'
     },
 
-    login : function () {
+    login : function() {
         app.sessions_collection.clearSession();
         app.loginform.render();
     },
 
-    logout: function () {
+    logout: function() {
         app.loginform.logout();
     },
 
-    register: function () {
+    register: function() {
         app.sessions_collection.clearSession();
         app.registerform.render();
     },
 
+    api: function() {
+        if (this.loggedIn()) {
+            app.marvel_api_form.render();
+        } else {
+            app.router.navigate('', {trigger: true});
+        }        
+    },
+
     loggedIn: function() {
         var login = app.sessions_collection.check_login();
-        if (!app.generic_collection.isEmpty(login)) {
-            return true;
-        } else {
-            return false;
-        }
+        return !app.util.isEmpty(login);
+    },
+
+    activeApiKeys: function() {
+        var keys = app.sessions_collection.check_apis();
+        return !app.util.isEmpty(keys);
+    },
+
+    authenticated: function() {
+        return (this.loggedIn() && this.activeApiKeys());
     },
 
     mainView: function (collection, custom) {
@@ -57,7 +71,7 @@ app.Router = Backbone.Router.extend({
     genre: function (genreName) {
         if (this.loggedIn()) {
             var genre = app.genres_collection.findWhere({link: genreName.substring(1)});
-            if (! app.generic_collection.isEmpty(genre)) {
+            if (! app.util.isEmpty(genre)) {
                 var comics = app.comics_collection.where({idGenre: genre.get("idGenre")});
                 var comicsCollection = new app.ComicsCollection(comics);
                 this.mainView(comicsCollection, true);
@@ -69,10 +83,10 @@ app.Router = Backbone.Router.extend({
         if (this.loggedIn()) {
             var character = app.characters_collection.findWhere({link: characterName.substring(1)});
             var self = this;
-            if (! app.generic_collection.isEmpty(character)) {
+            if (! app.util.isEmpty(character)) {
                 app.characters_per_comic_collection.fetch({success: (function (){
                     var comicsPerCharacter = app.characters_per_comic_collection.where({idCharacter: character.get("idCharacter")});
-                    if(! app.generic_collection.isEmpty(comicsPerCharacter)){
+                    if(! app.util.isEmpty(comicsPerCharacter)){
                         var comicsCollection = [];
                         comicsPerCharacter.forEach(function(element, index){
                             var comic = app.comics_collection.findWhere({idComic: element.get("idComic")});

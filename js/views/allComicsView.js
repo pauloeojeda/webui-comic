@@ -40,7 +40,6 @@ app.allComicsView = Backbone.View.extend({
     },
 
     loadSuccessHandler : function(){
-        console.log('All comics were loaded without errors!');
         this.render();
     },
 

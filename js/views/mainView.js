@@ -30,7 +30,6 @@ app.mainView = Backbone.View.extend({
     },
 
     renderCharactersDropdown: function () {
-        console.log("rendering characters dropdown");
         var charactersDropdownView = new app.allCharactersDropdownView({collection: app.characters_collection});
         charactersDropdownView.load();
     },
@@ -65,6 +64,5 @@ app.mainView = Backbone.View.extend({
     },
 
     filter: function (text) {
-        console.log(text);
     }
 });

@@ -8,19 +8,19 @@ app.SessionsCollection = Backbone.Collection.extend({
     login: function ( data ) {
         // try to find a registered user whose username matches
         var user = app.users_collection.findWhere({ username: data.username });
-        if (!app.generic_collection.isEmpty(user)) {
+        if (!app.util.isEmpty(user)) {
             // now let's try to find the exact match
             var user = app.users_collection.findWhere({ username: data.username, password: data.password });
 
             // did we find it?
-            if (!app.generic_collection.isEmpty(user)) {
+            if (!app.util.isEmpty(user)) {
                 // we sure did
                 app.sessions_collection.fetch();
 
                 // originally get(0)
                 var session = app.sessions_collection.at(0);
 
-                if (app.generic_collection.isEmpty(session)) {
+                if (app.util.isEmpty(session)) {
                     session = new app.singleSession({ session: true });
 
                     app.sessions_collection.add(session);
@@ -55,14 +55,13 @@ app.SessionsCollection = Backbone.Collection.extend({
             return true;
         } else {
             // not logged in
-            window.location.href = '';
+            app.router.navigate('', {trigger: true});
         }
     },
 
     logout: function () {
         this.clearSession();
-
-        window.location.href = '';
+        app.router.navigate('', {trigger: true});
     },
 
     clearSession: function () {
@@ -72,7 +71,7 @@ app.SessionsCollection = Backbone.Collection.extend({
         //originally get(0)
         var session = app.sessions_collection.at(0);
 
-        if(!app.generic_collection.isEmpty(session)){
+        if(!app.util.isEmpty(session)){
             // change the status to false
             session.set({
                 session: false

@@ -6,6 +6,8 @@ app.loginFormView = Backbone.View.extend({
 
     el: '#content',
 
+    errorEl: '#errorLogin',
+
     template: $('#loginFormTemplate').html(),
 
     events: {
@@ -30,14 +32,14 @@ app.loginFormView = Backbone.View.extend({
                 this.loginError(result);
             } else {
                 // do login
-                window.location.replace('#home');
+                app.router.navigate('#api', {trigger: true});
             }            
         }
     },
 
     validate: function (data) {
         if((data.username).length == 0 && (data.password).length == 0){
-            alert('Please, fill in all the fields');
+            app.util.displayError(this.errorEl, "Please, fill in all the fields");
             return false;
         };
         return true;
@@ -46,13 +48,13 @@ app.loginFormView = Backbone.View.extend({
     loginError: function (msg) {
         switch(msg){
             case "mismatch":
-                alert("There's a mismatch between the username and the password provided.\nPlease, try again");
+                app.util.displayError(this.errorEl, "There's a mismatch between the username and the password provided.\nPlease, try again");
                 break;
             case "user404":
-                alert("We couldn't find a user in our system that matches that username.\nPlease, try again");
+                app.util.displayError(this.errorEl, "We couldn't find a user in our system that matches that username.\nPlease, try again");
                 break;
             default:
-                alert("Woops! " + msg);
+                app.util.displayError(this.errorEl, "Woops! " + msg);
                 break;
         }
         $('#user_name').val("");
@@ -65,14 +67,14 @@ app.loginFormView = Backbone.View.extend({
     },
 
     register: function () {
-        window.location.replace('#register');
+        app.router.navigate('#register', {trigger: true});
     },
 
     enter: function (e) {
         if (e.keyCode == 13) {
             this.login();
         }
-    }
+    },
 
 });
 
