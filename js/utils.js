@@ -1,20 +1,20 @@
 // Namespace our app
 var app = app || {}
 
-app.Utils = Backbone.Collection.extend({
-
-    model: new Backbone.Model({}),
+app.util = {
 
     errorDisplayDuration: 3000,
 
     errorFadeDuration: 1500,
 
     isEmpty: function ( val ) {
-        if(val == 0 || val == false || val == '' || val == {} || val == [] || val == null || val == undefined)
-        {
-            return true;
-        }
-        return false;
+        return (val == 0 ||
+            val == false ||
+            val == '' ||
+            val == {} ||
+            val == [] ||
+            val == null ||
+            val == undefined);
     },
 
     displayError: function (el, msg) {
@@ -27,6 +27,4 @@ app.Utils = Backbone.Collection.extend({
             $(el).addClass('in').fadeOut(this.errorFadeDuration);
         }, this.errorDisplayDuration);
     }
-});
-
-app.util = new app.Utils();
+};
