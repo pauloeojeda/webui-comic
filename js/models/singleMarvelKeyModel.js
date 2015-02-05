@@ -3,7 +3,8 @@ var app = app || {}
 
 app.singleMarvelApiKey = Backbone.Model.extend({
     defaults: {
-        publicKey: ""
+        publicKey: "",
+        remember: false
     },
 
     validate: function(attrs, options) {

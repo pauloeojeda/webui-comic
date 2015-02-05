@@ -5,7 +5,9 @@ app.SessionsCollection = Backbone.Collection.extend({
     model: app.singleSession,
     localStorage: new Backbone.LocalStorage('sessions_store'),
 
-    login: function ( data ) {
+    login: function ( data, rememberSession ) {
+        this.clearSession();
+
         // try to find a registered user whose username matches
         var user = app.users_collection.findWhere({ username: data.username });
         if (!app.util.isEmpty(user)) {
@@ -15,23 +17,15 @@ app.SessionsCollection = Backbone.Collection.extend({
             // did we find it?
             if (!app.util.isEmpty(user)) {
                 // we sure did
-                app.sessions_collection.fetch();
+                var session = new app.singleSession({
+                    idUser: user.id,
+                    remember: rememberSession
+                });
 
-                // originally get(0)
-                var session = app.sessions_collection.at(0);
-
-                if (app.util.isEmpty(session)) {
-                    session = new app.singleSession({ session: true });
-
-                    app.sessions_collection.add(session);
-                } else {
-                    session.set({
-                        session: true
-                    });
-                }
-                session.set({idUser: user.id});
+                app.sessions_collection.add(session);
                 session.save();
                 app.sessions_collection.fetch();
+
                 return true;
             } else {
                 // no we haven't. there's a mismatch in the user-pass pair
@@ -43,20 +37,10 @@ app.SessionsCollection = Backbone.Collection.extend({
         }
     },
 
-    check_login: function () {
+    isSessionActive: function () {
         // get the users' data
         app.sessions_collection.fetch();
-        // originally get(0)
-        var session = app.sessions_collection.at(0);
-
-        // check if it exists
-        if (session.toJSON().session == true) {
-            // still logged in
-            return true;
-        } else {
-            // not logged in
-            app.router.navigate('', {trigger: true});
-        }
+        return (!app.sessions_collection.isEmpty());
     },
 
     logout: function () {
@@ -65,20 +49,7 @@ app.SessionsCollection = Backbone.Collection.extend({
     },
 
     clearSession: function () {
-        // get the users' data
-        app.sessions_collection.fetch();
-
-        //originally get(0)
-        var session = app.sessions_collection.at(0);
-
-        if(!app.util.isEmpty(session)){
-            // change the status to false
-            session.set({
-                session: false
-            });
-            session.save();
-            app.sessions_collection.fetch();
-        }
+        app.util.clearCollection(app.sessions_collection);
     }
 });
 

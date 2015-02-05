@@ -11,12 +11,16 @@ app.Router = Backbone.Router.extend({
     },
 
     login : function() {
-        app.sessions_collection.clearSession();
-        app.loginform.render();
+        if (this.savedSession()) {
+            app.router.navigate('api', {trigger: true});
+        } else {
+            app.loginform.render();
+        }
     },
 
     logout: function() {
-        app.loginform.logout();
+        app.sessions_collection.clearSession();
+        app.router.navigate('', {trigger: true});
     },
 
     register: function() {
@@ -26,20 +30,31 @@ app.Router = Backbone.Router.extend({
 
     api: function() {
         if (this.loggedIn()) {
-            app.marvel_api_form.render();
+            if (!this.savedApiKey()) {
+                app.marvel_api_form.render();
+            } else {
+                app.router.navigate('home', {trigger: true});
+            }
         } else {
             app.router.navigate('', {trigger: true});
-        }        
+        }
     },
 
     loggedIn: function() {
-        var login = app.sessions_collection.check_login();
-        return !app.util.isEmpty(login);
+        return app.sessions_collection.isSessionActive();
+    },
+
+    savedSession: function () {
+        return (this.loggedIn() && app.sessions_collection.at(0).get('remember'));
     },
 
     activeApiKeys: function() {
-        var keys = app.sessions_collection.check_apis();
-        return !app.util.isEmpty(keys);
+        app.marvel_api_keys_collection.fetch();
+        return !app.marvel_api_keys_collection.isEmpty();
+    },
+
+    savedApiKey: function() {
+        return (this.activeApiKeys() && app.marvel_api_keys_collection.at(0).get('remember'));
     },
 
     authenticated: function() {
@@ -59,28 +74,36 @@ app.Router = Backbone.Router.extend({
     },
 
     home: function () {
-        if (this.loggedIn()) {
+        if (this.authenticated()) {
             this.mainView(app.comics_collection, false);
+        } else {
+            app.router.navigate('', {trigger: true});
         }
     },
 
     dashboard: function () {
-        app.admindashboard.render();
+        if (this.authenticated()) {
+            app.admindashboard.render();
+        } else {
+            app.router.navigate('', {trigger: true});
+        }
     },
 
     genre: function (genreName) {
-        if (this.loggedIn()) {
+        if (this.authenticated()) {
             var genre = app.genres_collection.findWhere({link: genreName.substring(1)});
             if (! app.util.isEmpty(genre)) {
                 var comics = app.comics_collection.where({idGenre: genre.get("idGenre")});
                 var comicsCollection = new app.ComicsCollection(comics);
                 this.mainView(comicsCollection, true);
             }
+        } else {
+            app.router.navigate('', {trigger: true});
         }
     },
 
     character: function (characterName) {
-        if (this.loggedIn()) {
+        if (this.authenticated()) {
             var character = app.characters_collection.findWhere({link: characterName.substring(1)});
             var self = this;
             if (! app.util.isEmpty(character)) {
@@ -102,6 +125,8 @@ app.Router = Backbone.Router.extend({
             } else {
                 throw "character not found";
             }
+        } else {
+            app.router.navigate('', {trigger: true});
         }
     }
 });

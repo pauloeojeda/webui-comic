@@ -26,5 +26,13 @@ app.util = {
         this.errorId = window.setTimeout(function () {
             $(el).addClass('in').fadeOut(this.errorFadeDuration);
         }, this.errorDisplayDuration);
+    },
+
+    clearCollection: function (collection) {
+        collection.fetch();
+        var length = collection.length;
+        for (var i = length - 1; i >= 0; i--) {
+            collection.at(i).destroy();
+        }
     }
 };

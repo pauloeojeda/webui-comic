@@ -17,7 +17,7 @@ app.marvelApiFormView = Backbone.View.extend({
         var public_key = $('#marvel_public_key').val();
 
         if (this.validate(public_key)) {
-            var result = app.marvel_api_keys_collection.addMarvelKey(public_key);
+            var result = app.marvel_api_keys_collection.addMarvelKey(public_key, $('#rememberKey').is(':checked'));
             if(result.exitCode == 0) {
                 app.router.navigate('#home', {trigger: true});
             } else {

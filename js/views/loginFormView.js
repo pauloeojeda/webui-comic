@@ -27,7 +27,7 @@ app.loginFormView = Backbone.View.extend({
         };
 
         if (this.validate(user)) {
-            var result = app.sessions_collection.login(user);
+            var result = app.sessions_collection.login(user, $('#rememberLogin').is(':checked'));
             if(typeof result == "string") {
                 this.loginError(result);
             } else {
@@ -60,10 +60,6 @@ app.loginFormView = Backbone.View.extend({
         $('#user_name').val("");
         $('#user_pass').val("");
         $('#user_name').focus();
-    },
-
-    logout: function() {
-        app.sessions_collection.logout();
     },
 
     register: function () {

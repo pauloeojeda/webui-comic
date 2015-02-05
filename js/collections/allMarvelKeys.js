@@ -7,9 +7,9 @@ app.MarvelApiKeysCollection = Backbone.Collection.extend({
 
     localStorage: new Backbone.LocalStorage('marvel_api_keys_store'),
 
-    addMarvelKey: function (data) {
+    addMarvelKey: function (data, rememberKey) {
         this.clearMarvelKey();
-        var apiKey = new app.singleMarvelApiKey({publicKey: data});
+        var apiKey = new app.singleMarvelApiKey({publicKey: data, remember: rememberKey});
         var result = {exitCode: 0};
         apiKey.on("invalid", function(model, error) {
             result = {exitCode: 1, message: error};
@@ -22,11 +22,7 @@ app.MarvelApiKeysCollection = Backbone.Collection.extend({
     },
 
     clearMarvelKey: function () {
-        app.marvel_api_keys_collection.fetch();
-        var length = app.marvel_api_keys_collection.length;
-        for (var i = length - 1; i >= 0; i--) {
-            app.marvel_api_keys_collection.at(i).destroy();
-        }
+        app.util.clearCollection(app.marvel_api_keys_collection);
     }
 });
 
