@@ -4,6 +4,22 @@ body {
     height: 100%;
 }
 
+#searchDropdown {
+    padding: 0px;
+}
+
+#searchInput {
+    width: 158px;
+    margin-right: 0em;
+    padding-right:34px;
+}
+
+#searchIcon {
+    margin-right: 0px;
+    color: #777;
+    top: 0px;
+}
+
 .slide-image {
     width: 100%;
 }
