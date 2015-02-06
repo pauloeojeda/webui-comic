@@ -68,7 +68,7 @@ app.Router = Backbone.Router.extend({
     },
 
     mainView: function (collection, custom) {
-        new app.mainView();
+        app.main_view.render();
         if (collection) {
             var comicsView = new app.allComicsView({collection: collection});
             if (custom) {

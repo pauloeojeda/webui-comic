@@ -7,9 +7,9 @@ app.mainView = Backbone.View.extend({
     el: '#content',
     template: $('#mainTemplate').html(),
 
-    initialize: function () {
+    /*initialize: function () {
         this.render();
-    },
+    },*/
 
     events: {
         'keyup #quickSearch'    : 'enter'
@@ -66,3 +66,5 @@ app.mainView = Backbone.View.extend({
     filter: function (text) {
     }
 });
+
+app.main_view = new app.mainView();
