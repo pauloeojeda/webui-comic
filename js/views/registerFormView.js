@@ -16,10 +16,6 @@ app.registerFormView = Backbone.View.extend({
         'click #btn_generic_register_2'   : 'register'
     },
 
-    initialize: function () {
-        this.render();
-    },
-
     render: function () {
         this.$el.html( this.template );
     },
